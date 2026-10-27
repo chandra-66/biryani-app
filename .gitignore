@@ -1,0 +1,17 @@
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+.env
+.env.local
+.env.*.local
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+backend/.pytest_cache/
+backend/test_biryani_app.db
+backend/.env
+.DS_Store
+coverage/

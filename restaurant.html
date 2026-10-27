@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fffaf4" />
+    <meta name="description" content="Restaurant owner order dashboard for dum biryani." />
+    <title>Restaurant dashboard — dum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="restaurant.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#restaurant-dashboard">Skip to dashboard</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="dum customer storefront">
+          <span class="brand-mark" aria-hidden="true">d<span>.</span></span>
+          <span class="brand-name">dum<span>®</span></span>
+        </a>
+        <div class="owner-header-actions">
+          <span class="owner-label">Restaurant owner</span>
+          <button class="icon-button notification-button" id="notifications-toggle" type="button" aria-label="New order notifications" aria-expanded="false" aria-controls="order-notifications">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>
+            <span class="notification-count" id="notification-count" hidden>0</span>
+          </button>
+          <a class="button button-outline owner-storefront-link" href="index.html">Customer storefront</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="restaurant-dashboard" class="restaurant-dashboard section-wrap owner-dashboard-page" aria-labelledby="dashboard-title">
+      <div class="section-heading dashboard-heading">
+        <div><span class="section-kicker">Kitchen operations</span><h1 id="dashboard-title">Restaurant <em>dashboard.</em></h1><p class="section-subtitle">Manage customer orders for your biryani shop.</p></div>
+        <span class="dashboard-live"><i></i> Shop is open</span>
+      </div>
+      <div class="dashboard-stats" aria-label="Order summary">
+        <article class="dashboard-stat"><span>New orders</span><strong id="new-order-count">0</strong></article>
+        <article class="dashboard-stat"><span>In preparation</span><strong id="preparation-order-count">0</strong></article>
+        <article class="dashboard-stat"><span>Completed</span><strong id="completed-order-count">0</strong></article>
+      </div>
+      <div class="dashboard-toolbar" id="order-queue">
+        <h2>Order queue</h2>
+        <label class="dashboard-filter-label" for="order-status-filter">Show</label>
+        <select id="order-status-filter">
+          <option value="active">Active orders</option>
+          <option value="new">New orders</option>
+          <option value="preparation">In preparation</option>
+          <option value="completed">Completed</option>
+          <option value="rejected">Rejected</option>
+          <option value="all">All orders</option>
+        </select>
+      </div>
+      <p class="dashboard-error" id="dashboard-error" role="alert" hidden></p>
+      <div class="dashboard-orders" id="dashboard-orders" aria-live="polite"></div>
+    </main>
+
+    <section class="notification-panel owner-notification-panel" id="order-notifications" aria-label="New order notifications" hidden>
+      <div class="notification-header"><h2>New order notifications</h2><button class="close-button" id="notifications-close" type="button" aria-label="Close notifications">×</button></div>
+      <div class="notification-list" id="notification-list"></div>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
